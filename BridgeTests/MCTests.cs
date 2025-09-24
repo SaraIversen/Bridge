@@ -11,7 +11,7 @@ namespace Bridge.Tests
         public void PriceTest()
         {
             // Arrange
-            MC mc = new MC();
+            MC mc = new MC("", DateTime.Today);
 
             // Act
             double result = mc.Price();
@@ -25,7 +25,7 @@ namespace Bridge.Tests
         public void VehicleTypeTest()
         {
             // Arrange
-            MC mc = new MC();
+            MC mc = new MC("", DateTime.Today);
 
             // Act
             string result = mc.VehicleType();

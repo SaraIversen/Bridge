@@ -11,7 +11,7 @@ namespace Bridge.Tests
         public void PriceTest()
         {
             // Arrange
-            Car car = new Car();
+            Car car = new Car("", DateTime.Today);
 
             // Act
             double result = car.Price();
@@ -25,7 +25,7 @@ namespace Bridge.Tests
         public void VehicleTypeTest()
         {
             // Arrange
-            Car car = new Car();
+            Car car = new Car("", DateTime.Today);
 
             // Act
             string result = car.VehicleType();
