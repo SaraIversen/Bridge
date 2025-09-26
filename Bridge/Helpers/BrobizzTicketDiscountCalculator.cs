@@ -3,9 +3,9 @@
 namespace Bridge.Helpers
 {
     /// <summary>
-    /// Provides methods to apply discounts, such as Brobizz discounts, when calculating the final ticket price for a vehicle.
+    /// Provides methods to apply Brobizz discounts, when calculating the final ticket price for a vehicle.
     /// </summary>
-    public static class DiscountCalculator
+    public static class BrobizzTicketDiscountCalculator
     {
         /// <summary>
         /// Calculates the final price for a vehicle after applying discounts.
@@ -19,7 +19,7 @@ namespace Bridge.Helpers
             // Brobizz discount
             if (vehicle.HasBrobizz)
             {
-                basePrice *= 0.9; // 10% off
+                basePrice *= 0.9; // 10% discount
             }
 
             return basePrice;

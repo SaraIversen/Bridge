@@ -3,8 +3,13 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>warnings</Nullable>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Bridge">
+      <HintPath>ExternDLL\Bridge.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>

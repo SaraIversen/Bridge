@@ -1,4 +1,5 @@
-﻿using Bridge.Models;
+﻿using Bridge.Helpers;
+using Bridge.Models;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
@@ -54,7 +55,7 @@ namespace Bridge.Tests
             MC mc = new MC("AR12345", DateTime.Today, hasBrobizz);
 
             // Act
-            double result = mc.Price();
+            double result = BrobizzTicketDiscountCalculator.CalculatePrice(mc.Price(), mc);
 
             // Assert
             Assert.AreEqual(expectedPrice, result, 0.001);

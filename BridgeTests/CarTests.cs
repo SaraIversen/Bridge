@@ -1,4 +1,5 @@
-﻿using Bridge.Models;
+﻿using Bridge.Helpers;
+using Bridge.Models;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Bridge.Tests
@@ -53,7 +54,7 @@ namespace Bridge.Tests
             Car car = new Car("AR12345", DateTime.Today, hasBrobizz);
 
             // Act
-            double result = car.Price();
+            double result = BrobizzTicketDiscountCalculator.CalculatePrice(car.Price(), car);
 
             // Assert
             Assert.AreEqual(expectedPrice, result, 0.001);

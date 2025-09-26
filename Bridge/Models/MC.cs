@@ -21,7 +21,7 @@ namespace Bridge.Models
         /// <returns>The price of the motorcycle as a <see cref="double"/>.</returns>
         public override double Price()
         {
-            return DiscountCalculator.CalculatePrice(basePrice: 120, vehicle: this); // 120;
+            return 120;
         }
 
         /// <summary>
