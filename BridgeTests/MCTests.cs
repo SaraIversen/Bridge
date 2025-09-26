@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using Bridge.Models;
+using System.Diagnostics.CodeAnalysis;
+using System.Text;
 
 namespace Bridge.Tests
 {
@@ -12,13 +14,15 @@ namespace Bridge.Tests
             // Arrange
             string license = "AR12345";
             DateTime date = DateTime.Today;
+            bool hasBrobizz = false;
 
             // Act
-            MC car = new MC(license, date);
+            MC car = new MC(license, date, hasBrobizz);
 
             // Assert
             Assert.AreEqual(license, car.LicensePlate);
             Assert.AreEqual(date, car.Date);
+            Assert.AreEqual(hasBrobizz, car.HasBrobizz);
         }
 
         [TestMethod]
@@ -27,7 +31,7 @@ namespace Bridge.Tests
             // Arrange, Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() =>
             {
-                new MC("", DateTime.Today);
+                new MC("", DateTime.Today, false);
             });
         }
 
@@ -37,28 +41,30 @@ namespace Bridge.Tests
             // Arrange, Act & Assert
             Assert.ThrowsException<ArgumentException>(() =>
             {
-                new MC("AR123456", DateTime.Today);
+                new MC("AR123456", DateTime.Today, false);
             });
         }
 
-        [TestMethod]
-        public void PriceTest_ReturnsExpectedValue()
+        [DataTestMethod]
+        [DataRow(false, 120)]
+        [DataRow(true, 108)]
+        public void PriceTest_ReturnsExpectedValue(bool hasBrobizz, double expectedPrice)
         {
             // Arrange
-            MC mc = new MC("AR12345", DateTime.Today);
+            MC mc = new MC("AR12345", DateTime.Today, hasBrobizz);
 
             // Act
             double result = mc.Price();
 
             // Assert
-            Assert.AreEqual(120, result, 0.001);
+            Assert.AreEqual(expectedPrice, result, 0.001);
         }
 
         [TestMethod]
         public void VehicleTypeTest_ReturnsExpectedValue()
         {
             // Arrange
-            MC mc = new MC("AR12345", DateTime.Today);
+            MC mc = new MC("AR12345", DateTime.Today, false);
 
             // Act
             string result = mc.VehicleType();

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using Bridge.Models;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Bridge.Tests
 {
@@ -12,13 +13,15 @@ namespace Bridge.Tests
             // Arrange
             string license = "AR12345";
             DateTime date = DateTime.Today;
+            bool hasBrobizz = false;
 
             // Act
-            Car car = new Car(license, date);
+            Car car = new Car(license, date, hasBrobizz);
 
             // Assert
             Assert.AreEqual(license, car.LicensePlate);
             Assert.AreEqual(date, car.Date);
+            Assert.AreEqual(hasBrobizz, car.HasBrobizz);
         }
 
         [TestMethod]
@@ -27,7 +30,7 @@ namespace Bridge.Tests
             // Arrange, Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() =>
             {
-                new Car("", DateTime.Today);
+                new Car("", DateTime.Today, false);
             });
         }
 
@@ -37,28 +40,30 @@ namespace Bridge.Tests
             // Arrange, Act & Assert
             Assert.ThrowsException<ArgumentException>(() =>
             {
-                new Car("AR123456", DateTime.Today);
+                new Car("AR123456", DateTime.Today, false);
             });
         }
 
-        [TestMethod]
-        public void PriceTest_ReturnsExpectedValue()
+        [DataTestMethod]
+        [DataRow(false, 230)]
+        [DataRow(true, 207)]
+        public void PriceTest_ReturnsExpectedValue(bool hasBrobizz, double expectedPrice)
         {
             // Arrange
-            Car car = new Car("AR12345", DateTime.Today);
+            Car car = new Car("AR12345", DateTime.Today, hasBrobizz);
 
             // Act
             double result = car.Price();
 
             // Assert
-            Assert.AreEqual(230, result, 0.001);
+            Assert.AreEqual(expectedPrice, result, 0.001);
         }
 
         [TestMethod]
         public void VehicleTypeTest_ReturnsExpectedValue()
         {
             // Arrange
-            Car car = new Car("AR12345", DateTime.Today);
+            Car car = new Car("AR12345", DateTime.Today, false);
 
             // Act
             string result = car.VehicleType();
