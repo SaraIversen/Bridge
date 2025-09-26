@@ -1,6 +1,4 @@
-﻿using Bridge.Helpers;
-
-namespace Bridge.Models
+﻿namespace Bridge.Models
 {
     /// <summary>
     /// Represents a car vehicle, derived from <see cref="Vehicle"/>.

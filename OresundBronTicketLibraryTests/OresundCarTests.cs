@@ -1,13 +1,10 @@
-﻿using Bridge.Helpers;
-using Bridge.Models;
-using System.Diagnostics.CodeAnalysis;
-using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Bridge.Tests
+namespace OresundBronTicketLibrary.Tests
 {
     [ExcludeFromCodeCoverage]
     [TestClass]
-    public class MCTests
+    public class OresundCarTests
     {
         [TestMethod]
         public void ConstructorTest_ValidData()
@@ -18,12 +15,12 @@ namespace Bridge.Tests
             bool hasBrobizz = false;
 
             // Act
-            MC mc = new MC(license, date, hasBrobizz);
+            OresundCar oresundCar = new OresundCar(license, date, hasBrobizz);
 
             // Assert
-            Assert.AreEqual(license, mc.LicensePlate);
-            Assert.AreEqual(date, mc.Date);
-            Assert.AreEqual(hasBrobizz, mc.HasBrobizz);
+            Assert.AreEqual(license, oresundCar.LicensePlate);
+            Assert.AreEqual(date, oresundCar.Date);
+            Assert.AreEqual(hasBrobizz, oresundCar.HasBrobizz);
         }
 
         [TestMethod]
@@ -32,7 +29,7 @@ namespace Bridge.Tests
             // Arrange, Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() =>
             {
-                new MC("", DateTime.Today, false);
+                new OresundCar("", DateTime.Today, false);
             });
         }
 
@@ -42,20 +39,20 @@ namespace Bridge.Tests
             // Arrange, Act & Assert
             Assert.ThrowsException<ArgumentException>(() =>
             {
-                new MC("AR123456", DateTime.Today, false);
+                new OresundCar("AR123456", DateTime.Today, false);
             });
         }
 
         [DataTestMethod]
-        [DataRow(false, 120)]
-        [DataRow(true, 108)]
+        [DataRow(false, 460)]
+        [DataRow(true, 178)]
         public void PriceTest_ReturnsExpectedValue(bool hasBrobizz, double expectedPrice)
         {
             // Arrange
-            MC mc = new MC("AR12345", DateTime.Today, hasBrobizz);
+            OresundCar oresundCar = new OresundCar("AR12345", DateTime.Today, hasBrobizz);
 
             // Act
-            double result = BrobizzTicketDiscountCalculator.CalculatePrice(mc.Price(), mc);
+            double result = oresundCar.Price();
 
             // Assert
             Assert.AreEqual(expectedPrice, result, 0.001);
@@ -65,13 +62,13 @@ namespace Bridge.Tests
         public void VehicleTypeTest_ReturnsExpectedValue()
         {
             // Arrange
-            MC mc = new MC("AR12345", DateTime.Today, false);
+            OresundCar oresundCar = new OresundCar("AR12345", DateTime.Today, false);
 
             // Act
-            string result = mc.VehicleType();
+            string result = oresundCar.VehicleType();
 
             // Assert
-            Assert.AreEqual("MC", result);
+            Assert.AreEqual("Oresund car", result);
         }
     }
 }

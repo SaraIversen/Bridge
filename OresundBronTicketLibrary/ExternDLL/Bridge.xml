@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bridge</name>
+    </assembly>
+    <members>
+        <member name="T:Bridge.Helpers.BrobizzTicketDiscountCalculator">
+            <summary>
+            Provides methods to apply Brobizz discounts, when calculating the final ticket price for a vehicle.
+            </summary>
+        </member>
+        <member name="M:Bridge.Helpers.BrobizzTicketDiscountCalculator.CalculatePrice(System.Double,Bridge.Models.Vehicle)">
+            <summary>
+            Calculates the final price for a vehicle after applying discounts.
+            Currently applies a 10% Brobizz discount if the vehicle has a Brobizz.
+            </summary>
+            <param name="basePrice">The base ticket price before any discounts.</param>
+            <param name="vehicle">The vehicle for which the price is being calculated.</param>
+            <returns>The final ticket price after applying discounts.</returns>
+        </member>
+        <member name="T:Bridge.Helpers.LicensePlateValidator">
+            <summary>
+            Provides methods for validating vehicle license plates to ensure they meet format requirements,
+            such as not being null, empty, or longer than 7 characters.
+            </summary>
+        </member>
+        <member name="M:Bridge.Helpers.LicensePlateValidator.Validate(System.String)">
+            <summary>
+            Validates that the given license plate by ensuring it is not null, empty, or longer than 7 characters.
+            </summary>
+            <param name="licensePlate">The license plate string to validate.</param>
+            <returns>The validated license plate string if all checks pass.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="licensePlate"/> is null, empty, or consists only of whitespace.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="licensePlate"/> exceeds 7 characters in length.</exception>
+        </member>
+        <member name="T:Bridge.Models.Car">
+            <summary>
+            Represents a car vehicle, derived from <see cref="T:Bridge.Models.Vehicle"/>.
+            </summary>
+        </member>
+        <member name="M:Bridge.Models.Car.#ctor(System.String,System.DateTime,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bridge.Models.Car"/> class with the specified license plate, ticket purchase date, and Brobizz status.
+            </summary>
+            <param name="licensePlate">The license plate of the car.</param>
+            <param name="date">The date when the car bought a bridge ticket.</param>
+            <param name="hasBrobizz">Indicates whether the car has a Brobizz.</param>
+        </member>
+        <member name="M:Bridge.Models.Car.Price">
+            <summary>
+            Gets the price for a car.
+            </summary>
+            <returns>The price of the car as a <see cref="T:System.Double"/>.</returns>
+        </member>
+        <member name="M:Bridge.Models.Car.VehicleType">
+            <summary>
+            Gets the vehicle type for a car.
+            </summary>
+            <returns>The vehicle type as a <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="T:Bridge.Models.MC">
+            <summary>
+            Represents a motorcycle (MC) vehicle, derived from <see cref="T:Bridge.Models.Vehicle"/>.
+            </summary>
+        </member>
+        <member name="M:Bridge.Models.MC.#ctor(System.String,System.DateTime,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bridge.Models.MC"/> class with the specified license plate and ticket purchase date, ticket purchase date, and Brobizz status.
+            </summary>
+            <param name="licensePlate">The license plate of the motorcycle.</param>
+            <param name="date">The date when the motorcycle bought a bridge ticket.</param>
+            <param name="hasBrobizz">Indicates whether the motocycle has a Brobizz.</param>
+        </member>
+        <member name="M:Bridge.Models.MC.Price">
+            <summary>
+            Gets the price for a motorcycle.
+            </summary>
+            <returns>The price of the motorcycle as a <see cref="T:System.Double"/>.</returns>
+        </member>
+        <member name="M:Bridge.Models.MC.VehicleType">
+            <summary>
+            Gets the vehicle type for a motorcycle.
+            </summary>
+            <returns>The vehicle type as a <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="T:Bridge.Models.Vehicle">
+            <summary>
+            Base class for vehicles that have a license plate and a ticket purchase date.
+            Must be inherited to implement specific details about a vehicles price and type.
+            </summary>
+        </member>
+        <member name="M:Bridge.Models.Vehicle.#ctor(System.String,System.DateTime,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bridge.Models.Vehicle"/> class with the specified license plate, ticket purchase date, and Brobizz status.
+            </summary>
+            <param name="licensePlate">The license plate of the vehicle.</param>
+            <param name="date">The date when the vehicle bought a bridge ticket.</param>
+            <param name="hasBrobizz">Indicates whether the vehicle has a Brobizz.</param>
+        </member>
+        <member name="M:Bridge.Models.Vehicle.Price">
+            <summary>
+            Gets the price for this vehicle.
+            Must be implemented in derived classes.
+            </summary>
+        </member>
+        <member name="M:Bridge.Models.Vehicle.VehicleType">
+            <summary>
+            Gets the type of this vehicle.
+            Must be implemented in derived classes.
+            </summary>
+        </member>
+    </members>
+</doc>
