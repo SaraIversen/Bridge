@@ -54,7 +54,7 @@ namespace Bridge.Tests
             Car car = new Car("AR12345", DateTime.Today, hasBrobizz);
 
             // Act
-            double result = BrobizzTicketDiscountCalculator.CalculatePrice(car.Price(), car);
+            double result = car.Price();
 
             // Assert
             Assert.AreEqual(expectedPrice, result, 0.001);

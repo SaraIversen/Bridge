@@ -10,7 +10,7 @@
         /// </summary>
         /// <param name="licensePlate">The license plate of the motorcycle.</param>
         /// <param name="date">The date when the motorcycle bought a bridge ticket.</param>
-        /// <param name="hasBrobizz">Indicates whether the motocycle has a Brobizz.</param>
+        /// <param name="hasBrobizz">Indicates whether the motorcycle has a Brobizz.</param>
         public MC(string licensePlate, DateTime date, bool hasBrobizz) : base(licensePlate, date, hasBrobizz) { }
 
         /// <summary>
@@ -19,7 +19,14 @@
         /// <returns>The price of the motorcycle as a <see cref="double"/>.</returns>
         public override double Price()
         {
-            return 120;
+            double basePrice = 120;
+
+            if (HasBrobizz)
+            {
+                basePrice *= 0.9; // 10% discount
+            }
+
+            return basePrice;
         }
 
         /// <summary>

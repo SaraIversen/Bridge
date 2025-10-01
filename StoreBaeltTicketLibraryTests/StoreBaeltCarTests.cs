@@ -1,11 +1,10 @@
-﻿using Bridge.Models;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace StoreBaeltTicketLibrary.Tests
 {
     [ExcludeFromCodeCoverage]
     [TestClass]
-    public class CarTests
+    public class StoreBaeltCarTests
     {
         [DataTestMethod]
         [DataRow(false, "2025-01-01", 230)] // Base price (no brobizz, weekday)
@@ -16,10 +15,10 @@ namespace StoreBaeltTicketLibrary.Tests
         {
             // Arrange
             DateTime date = DateTime.Parse(dateString);
-            Car car = new Car("AR12345", date, hasBrobizz);
+            StoreBaeltCar storeBaeltCar = new StoreBaeltCar("AR12345", date, hasBrobizz);
 
             // Act
-            double result = StoreBaeltTicketCalculator.CalculatePrice(basePrice: car.Price(), vehicle: car);
+            double result = storeBaeltCar.Price();
 
             // Assert
             Assert.AreEqual(expectedPrice, result, 0.001);

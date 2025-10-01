@@ -55,7 +55,7 @@ namespace Bridge.Tests
             MC mc = new MC("AR12345", DateTime.Today, hasBrobizz);
 
             // Act
-            double result = BrobizzTicketDiscountCalculator.CalculatePrice(mc.Price(), mc);
+            double result = mc.Price();
 
             // Assert
             Assert.AreEqual(expectedPrice, result, 0.001);

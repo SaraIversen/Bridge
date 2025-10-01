@@ -12,7 +12,7 @@ namespace OresundBronTicketLibrary
         /// </summary>
         /// <param name="licensePlate">The license plate of the Oresund motorcycle.</param>
         /// <param name="date">The date when the Oresund motorcycle bought a bridge ticket.</param>
-        /// <param name="hasBrobizz">Indicates whether the motocycle has a Brobizz.</param>
+        /// <param name="hasBrobizz">Indicates whether the Oresund motorcycle has a Brobizz.</param>
         public OresundMC(string licensePlate, DateTime date, bool hasBrobizz) : base(licensePlate, date, hasBrobizz) { }
 
         /// <summary>

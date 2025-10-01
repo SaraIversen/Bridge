@@ -4,20 +4,6 @@
         <name>Bridge</name>
     </assembly>
     <members>
-        <member name="T:Bridge.Helpers.BrobizzTicketDiscountCalculator">
-            <summary>
-            Provides methods to apply Brobizz discounts, when calculating the final ticket price for a vehicle.
-            </summary>
-        </member>
-        <member name="M:Bridge.Helpers.BrobizzTicketDiscountCalculator.CalculatePrice(System.Double,Bridge.Models.Vehicle)">
-            <summary>
-            Calculates the final price for a vehicle after applying discounts.
-            Currently applies a 10% Brobizz discount if the vehicle has a Brobizz.
-            </summary>
-            <param name="basePrice">The base ticket price before any discounts.</param>
-            <param name="vehicle">The vehicle for which the price is being calculated.</param>
-            <returns>The final ticket price after applying discounts.</returns>
-        </member>
         <member name="T:Bridge.Helpers.LicensePlateValidator">
             <summary>
             Provides methods for validating vehicle license plates to ensure they meet format requirements,
@@ -69,7 +55,7 @@
             </summary>
             <param name="licensePlate">The license plate of the motorcycle.</param>
             <param name="date">The date when the motorcycle bought a bridge ticket.</param>
-            <param name="hasBrobizz">Indicates whether the motocycle has a Brobizz.</param>
+            <param name="hasBrobizz">Indicates whether the motorcycle has a Brobizz.</param>
         </member>
         <member name="M:Bridge.Models.MC.Price">
             <summary>

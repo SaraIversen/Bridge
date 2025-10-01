@@ -13,12 +13,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StoreBaeltTicketLibrary\StoreBaeltTicketLibrary.csproj" />
+    <ProjectReference Include="..\StoreBaeltRepository\StoreBaeltRepository.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Bridge">
-      <HintPath>..\StoreBaeltTicketLibrary\ExternDLL\Bridge.dll</HintPath>
+      <HintPath>..\StoreBaeltRepository\ExternDLL\Bridge.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="StoreBaeltTicketLibrary">
+      <HintPath>..\StoreBaeltRepository\ExternDLL\StoreBaeltTicketLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
 

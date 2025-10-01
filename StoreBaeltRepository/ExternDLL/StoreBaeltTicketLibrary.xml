@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StoreBaeltTicketLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:StoreBaeltTicketLibrary.StoreBaeltCar">
+            <summary>
+            Represents a StoreBaelt car vehicle, derived from <see cref="T:Bridge.Models.Vehicle"/>.
+            </summary>
+        </member>
+        <member name="M:StoreBaeltTicketLibrary.StoreBaeltCar.#ctor(System.String,System.DateTime,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:StoreBaeltTicketLibrary.StoreBaeltCar"/> class with the specified license plate, ticket purchase date, and Brobizz status.
+            </summary>
+            <param name="licensePlate">The license plate of the StoreBaelt car.</param>
+            <param name="date">The date when the StoreBaelt car bought a bridge ticket.</param>
+            <param name="hasBrobizz">Indicates whether the StoreBaelt car has a Brobizz.</param>
+        </member>
+        <member name="M:StoreBaeltTicketLibrary.StoreBaeltCar.Price">
+            <summary>
+            Gets the price for a StoreBaelt car.
+            </summary>
+            <returns>The price of the StoreBaelt car as a <see cref="T:System.Double"/>.</returns>
+        </member>
+        <member name="M:StoreBaeltTicketLibrary.StoreBaeltCar.VehicleType">
+            <summary>
+            Gets the vehicle type for a StoreBaelt car.
+            </summary>
+            <returns>The vehicle type as a <see cref="T:System.String"/>.</returns>
+        </member>
+    </members>
+</doc>

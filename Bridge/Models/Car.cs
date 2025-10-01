@@ -19,7 +19,14 @@
         /// <returns>The price of the car as a <see cref="double"/>.</returns>
         public override double Price()
         {
-            return 230;
+            double basePrice = 230;
+
+            if (HasBrobizz)
+            {
+                basePrice *= 0.9; // 10% discount
+            }
+
+            return basePrice;
         }
 
         /// <summary>
